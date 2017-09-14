@@ -1,31 +1,39 @@
-#-*- encoding: UTF-8 -*-
+#!/usr/bin/env python
+# coding=utf-8
+
 from setuptools import setup, find_packages
-"""
-打包的用的setup必须引入，
-"""
 
-VERSION = '0.1.1'
-
-setup(name='so',
-      version=VERSION,
-      description="a tiny and smart cli player of douyutv,ximalayad,anmu based on Python",
-      long_description='just enjoy',
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='python java',
-      author='alexander',
-      author_email='tianchuiqin@gmail.com',
-      url='https://github.com/AlexanderLuo/so',
-      license='MIT',
-      packages=find_packages(),
-      include_package_data=True,
-      zip_safe=True,
-      install_requires=[
-        'requests',
-      ],
-      entry_points={
-        'console_scripts':[
-            'danmu.fm = danmufm.danmu:main'
-        ]
-      },
+setup(
+    name="so",
+    version=0.03,
+    description=(
+        '<项目的简单描述>'
+    ),
+    long_description="empty",
+    author='alexanderLuo',
+    author_email='496952252@qq.com',
+    maintainer='alexanderLuo',
+    maintainer_email='496952252@qq.com',
+    license='BSD License',
+    packages=find_packages(),
+    platforms=["all"],
+    url='',
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Operating System :: OS Independent',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: Implementation',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Software Development :: Libraries'
+    ],
+    install_requires=[
+        'click'
+    ]
 )
-
