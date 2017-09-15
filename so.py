@@ -1,8 +1,10 @@
 
 import click
-import logging
+import config
+import init
+import fn
+import config
 from loader import parse
-
 
 
 
@@ -22,29 +24,27 @@ APP_DESC = """
 """
 
 
-def main():
-    print(APP_DESC)
-    parse_command()
 
 
 @click.command()
-# @click.option('--count',default=1, help='Number of greetings.')
-@click.option('--name',  help='The person to greet.')
-@click.option('--spring', type=click.Choice(['boot', 'mvc']))    # 限定值
-@click.option('--load', type=click.Choice(['swagger', 'sr']))    # 限定值
-def parse_command(name,spring,load):
-    if name:
-        te()
-    if spring:
-        print(2)
-    if load:
-       parse.handle(load)
+@click.option('--add', type=click.Choice(['swagger', 'sr']))    # 限定值
+@click.argument('command')
+
+def parse_command(command,add):
+    if command == "install":
+        init.initial()
+    if add:
+       parse.handle(add)
 
 
 
 
-def te():
-    print("123")
+
+
+
+def main():
+    print(APP_DESC)
+    parse_command()
 
 
 

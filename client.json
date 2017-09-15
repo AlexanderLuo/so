@@ -1,0 +1,6 @@
+{
+    "language":"JAVA",
+    "package":  "\\src\\main\\java\\com\\xjoyt\\supervisor\\",
+    "frame":"springBoot",
+    "plugins":"swagger"
+}
