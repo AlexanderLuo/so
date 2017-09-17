@@ -24,12 +24,11 @@ APP_DESC = """
 """
 
 
-
+#   "package":  "\\src\\main\\java\\com\\xjoyt\\supervisor\\",
 
 @click.command()
 @click.option('--add', type=click.Choice(['swagger', 'sr']))    # 限定值
 @click.argument('command')
-
 def parse_command(command,add):
     if command == "install":
         init.initial()

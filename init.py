@@ -1,33 +1,33 @@
 import codecs
-
 import config
 import json
 import fn
-
-
-
+import builder
+import cach
 
 
 
 def initial():
-    path=config.FILEPATH.THISPATH.value+"client.json"
+    path=fn.thisPath("client.json")
     dic = json.load(codecs.open(path,encoding='utf8'))
-    builder(dic)
+    cr=cach.getInstance()
+    cr.set("package",dic["package"])
+    cr.set("packagePath",config.FILEPATH.THISPATH.value+dic["package"].replace(".",config.SEPARATION)+config.SEPARATION)
+    cr.set("mysql",dic["mysql"])
+    fn.safeCopy(config.FILEPATH.NORMAL.value + ".gitignore", fn.thisPath(".gitignore"))
+    if dic["frame"] == "springBoot":
+        springBoot()
 
 
 
-    # fn.safeCopy(config.FILEPATH.NORMAL.value+".gitignore", config.FILEPATH.THISPATH.value)
-
-def builder(dic):
-    if dic["frame"]=="springBoot":
-        springBoot(dic)
 
 
 
+def springBoot():
+    list=config.PROTREE.SPRINGBOOT.value
+    builder.getInstance(list).build()
 
-def springBoot(dic):
-    path=dic["package"]
-    list=config.PROTREE.SPRINGBOOT.value;
+
 
 
 

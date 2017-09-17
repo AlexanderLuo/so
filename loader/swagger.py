@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 
 
 
-
+print(1)
 
 
 # POM_NS = "{http://maven.apache.org/POM/4.0.0}"

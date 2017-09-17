@@ -20,6 +20,8 @@ class FILEPATH(Enum):
     EXAMPLE = '.'+SEPARATION+"example"+SEPARATION
     NORMAL = '.'+SEPARATION+"example"+SEPARATION+"normal"+SEPARATION
     SWAGGER = '.'+SEPARATION+"example"+SEPARATION+"swagger"+SEPARATION
+    PO="."+SEPARATION+"example"+SEPARATION+"po"+SEPARATION
+    SEARCHMODEL="."+SEPARATION+"example"+SEPARATION+"searchModel"+SEPARATION
 
 
 
@@ -40,7 +42,29 @@ class INFO(Enum):
 from enum import Enum, unique
 @unique
 class PROTREE(Enum):
-    SPRINGBOOT = ["controller","service","dao","po","config","repository","annotations",]
+    SPRINGBOOT = ["controller","service","dao","po","config","repository","annotation","filter","util","searchModel"]
+
+
+
+# MYSQL-JAVA类型映射表
+from enum import Enum, unique
+@unique
+class TYPEMAP(Enum):
+    MYSQL2JAVA = {
+        "varchar":{"type":"String","rel":""},
+        "char": {"type":"String","rel":""},
+        "int":{"type":"int","rel":""},
+        "tinyint": {"type":"int","rel":""},
+        "bigint": {"type":"Long","rel":""},
+        "double":{"type":"double","rel":""},
+        "float":{"type":"float","rel":""},
+        "datetime":{"type":"Date","rel":"import java.util.Date;"},
+        "date":{"type":"Date","rel":"import java.util.Date;"}
+
+
+    }
+
+
 
 
 
