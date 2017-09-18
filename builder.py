@@ -129,7 +129,7 @@ class builder(object):
 
     def searchModel(self):
         if "swagger" in self.cr.get("plugin"):
-            tar="swaggerPage"
+            tar="pageParm"
         else:
             tar="pageParam"
         plugin.getInstance().apply(["swagger"])

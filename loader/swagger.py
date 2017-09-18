@@ -1,48 +1,21 @@
 import codecs
-
 import config
 import fn
-import xml.etree.ElementTree as ET
+import cach
 
 
 
-
-print(1)
-
-
-# POM_NS = "{http://maven.apache.org/POM/4.0.0}"
-# tree = ET.parse(config.py.FILEPATH.THISPATH.value+"pom.xml")
-# root = tree.getroot()
-# node = ET.parse(config.py.FILEPATH.SWAGGER.value+"pom").getroot()
-#
-# target=root.findall('%sdependencies' %(POM_NS))[0]
-# target.append(node)
-# tree.write(config.py.FILEPATH.THISPATH.value+"pom.xml")
+cr=cach.getInstance()
 
 
-
-
-
-# source=codecs.open(config.py.FILEPATH.SWAGGER.value+"SwaggerJava",'r',encoding='utf8')
-# lines =source.readlines()
-# source.close()
-# fp =codecs.open(config.py.FILEPATH.THISPATH.value+"test.java",'w',encoding='utf8')
-# for s in lines:
-#     fp.write(s.replace('$JAVANOTE',fn.javaNote("Swagger 配置")).replace("$PACKAGE","com.xjoyt.supervisory"))
-# fp.close()
-#
-
-
-
-
-
-
-
-
-
-
-
-
+# 写入swagger配置类
+source=codecs.open(config.FILEPATH.SWAGGER.value+"SwaggerConfig",'r',encoding='utf8')
+lines =source.readlines()
+source.close()
+fp =codecs.open(cr.get("packagePath")+"config\\"+"SwaggerConfig.java",'w',encoding='utf8')
+for s in lines:
+    fp.write(s.replace('$JAVANOTE',fn.authNote("Swagger 配置")).replace("$PACKAGE",cr.get("package")))
+fp.close()
 
 
 

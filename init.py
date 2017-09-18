@@ -3,6 +3,7 @@ import config
 import json
 import fn
 import builder
+import plugin
 import cach
 import os
 from queue import Queue
@@ -18,36 +19,47 @@ def initial():
     cr.set("mysql",dic["mysql"])
     cr.set("plugin",dic["plugin"])
     fn.safeCopy(config.FILEPATH.NORMAL.value + ".gitignore", fn.thisPath(".gitignore"))
-    if dic["frame"] == "springBoot":
-        springBoot()
+    if dic["language"]=="JAVA":
+
+        if dic["frame"] == "springBoot":
+            springBoot()
 
 
 
 
 
-
+list=[]
 
 
 def springBoot():
-    list=[]
+    cr = cach.getInstance()
     q = Queue()
-    dic=config.PROTREE.SPRINGBOOT.value
+    arrTree=config.PROTREE.SPRINGBOOT.value
     path = cach.getInstance().get("packagePath")
+    node={ "arrTree":arrTree ,"path": path }
+    q.put(node)
+    parseQueue(q)
+    # builder.getInstance().build(list)
+    plugin.getInstance().apply(cr.get("plugin"))
 
 
-
-    list.append(key)
-    builder.getInstance().build(list)
-
-
-def parseQueue(queue,path):
-    arr=queue.get()
-    for fileObj in arr:
-        for key,value in fileObj:
+def parseQueue(queue):
+    if queue.empty():
+        return
+    node=queue.get()
+    arrTree=node["arrTree"]
+    path=node["path"]
+    for fileObj in arrTree:
+        for key in fileObj:
+            list.append(key)
             if not os.path.exists(path + key):
                 os.makedirs(path + key)
-            if len(value) > 0:
-                q.put()
+            if len(fileObj[key]) > 0:
+                node={"arrTree":fileObj[key],"path":path+config.SEPARATION+key+config.SEPARATION}
+                queue.put(node)
+    parseQueue(queue)
+
+
 
 
 
