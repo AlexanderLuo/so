@@ -37,6 +37,7 @@ def springBoot():
     list.append(key)
     builder.getInstance().build(list)
 
+
 def parseQueue(queue,path):
     arr=queue.get()
     for fileObj in arr:
