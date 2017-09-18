@@ -22,6 +22,7 @@ class FILEPATH(Enum):
     SWAGGER = '.'+SEPARATION+"example"+SEPARATION+"swagger"+SEPARATION
     PO="."+SEPARATION+"example"+SEPARATION+"po"+SEPARATION
     SEARCHMODEL="."+SEPARATION+"example"+SEPARATION+"searchModel"+SEPARATION
+    SPRINGBOOT="."+SEPARATION+"example"+SEPARATION+"springboot"+SEPARATION
 
 
 
@@ -42,7 +43,19 @@ class INFO(Enum):
 from enum import Enum, unique
 @unique
 class PROTREE(Enum):
-    SPRINGBOOT = ["controller","service","dao","po","config","repository","annotation","filter","util","searchModel"]
+    SPRINGBOOT = [{"controller":[]},
+                  {"service":[]},
+                  {"dao":[
+                      {"impl":[]}
+                  ]},
+                  {"po":[]},
+                  {"config":[]},
+                  {"repository":[]},
+                  {"annotation":[]},
+                  {"filter":[]},
+                  {"util":[]},
+                  {"searchModel":[]}
+                  ]
 
 
 

@@ -6,15 +6,11 @@ class plugin(object):
     arr=[]
 
 
-    def __init__(self, arr=None):
-        if arr is None:
-            arr = {}
-        self.arr = arr
 
     @classmethod
-    def getInstance(cls, arr=[]):
+    def getInstance(cls):
         if cls.instance is None:
-            cls.instance = plugin(arr)
+            cls.instance = plugin()
             return cls.instance
         else:
             return cls.instance
@@ -39,8 +35,8 @@ class plugin(object):
 
 
 
-def getInstance(arr):
-    return plugin.getInstance(arr)
+def getInstance():
+    return plugin.getInstance()
 
 
 

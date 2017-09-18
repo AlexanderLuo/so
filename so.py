@@ -4,8 +4,6 @@ import config
 import init
 import fn
 import config
-from loader import parse
-
 
 
 
@@ -32,10 +30,6 @@ APP_DESC = """
 def parse_command(command,add):
     if command == "install":
         init.initial()
-    if add:
-       parse.handle(add)
-
-
 
 
 

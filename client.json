@@ -10,6 +10,6 @@
         "db":"supervisory",
         "charset":"utf8mb4"
     },
-    "plugins":"swagger"
+    "plugin":["swagger"]
 }
 
