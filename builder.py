@@ -30,7 +30,9 @@ class builder(object):
         self.db = database.getInstance().getDb()
         self.cr=cach.getInstance()
         for key in self.obj:
-            if dir in self.handler:
+            # fn.pt("building"+key)
+            fn.pt("building:"+key+"...")
+            if key in self.handler:
                 self.handler[key](self)
         self.db.close()
 
@@ -134,7 +136,7 @@ class builder(object):
             tar="pageParam"
         plugin.getInstance().apply(["swagger"])
         package = self.cr.get("package")
-        file = fn.openFile(self.cr.get("packagePath")+"searchModel\\"+"PageParamModel.java")
+        file = fn.openFile(self.cr.get("packagePath")+"searchModel"+cn.SEPARATION+"PageParamModel.java")
         lines=fn.readAsLines(cn.FILEPATH.SEARCHMODEL.value+tar)
         for s in lines:
             file.write(
@@ -142,12 +144,21 @@ class builder(object):
             )
         file.close()
 
+    def springBoot(self):
+        packagePath=self.cr.get("packagePath")
+        fn.safeCopy(cn.FILEPATH.SPRINGBOOT.value+"App",packagePath+"App.java")
+        fn.safeCopy(cn.FILEPATH.SPRINGBOOT.value+"pom","pom.xml")
+        fn.safeCopy(cn.FILEPATH.SPRINGBOOT.value+"application.properties",cn.FILEPATH.THISPATH.value+"src"+cn.SEPARATION+"main"+
+                    cn.SEPARATION+"resources"+cn.SEPARATION+"application.properties")
+        fn.safeCopy(cn.FILEPATH.SPRINGBOOT.value+"application-dev.properties",cn.FILEPATH.THISPATH.value+"src"+cn.SEPARATION+"main"+
+                    cn.SEPARATION+"resources"+cn.SEPARATION+"application-dev.properties")
 
 
 
 
 
     handler = {
+        "springBoot": springBoot,
         "controller": controller,
         "service": service,
         "dao": dao,
@@ -157,7 +168,8 @@ class builder(object):
         "annotation": annotation,
         "filter": filter,
         "util": util,
-        "searchModel":searchModel
+        "searchModel":searchModel,
+
     }
 
 

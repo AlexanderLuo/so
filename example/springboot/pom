@@ -100,30 +100,16 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-
-
-
-
-
-
-
-
-
         <!-- 包含Web应用开发时，用到Spring框架时所需的核心类，包括自动载入WebApplicationContext特性的类、Struts与JSF集成类、文件上传的支持类、Filter类和大量工具辅助类。-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
-
-
         <!-- jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-
-
-
         <!--数据库相关包-->
         <!--MYSQL JAVA连接包-->
         <dependency>
@@ -203,6 +189,7 @@
             <artifactId>aliyun-sdk-oss</artifactId>
             <version>2.3.0</version>
         </dependency>
+        <!-- so  auto inject -->
 
 
 

@@ -1,7 +1,7 @@
 from xml.dom.minidom import parse
 import xml.dom.minidom
 import config
-
+import cach
 
 class plugin(object):
     cr = None
@@ -38,7 +38,6 @@ class plugin(object):
         path=self.mapper[name][2]
         if path:
             doc = xml.dom.minidom.parse(path).documentElement
-            print(doc)
             # 使用minidom解析器打开 XML 文档
             DOMTree = xml.dom.minidom.parse("pom.xml")
             collection = DOMTree.documentElement
@@ -47,7 +46,6 @@ class plugin(object):
             f = open("pom.xml", "wb")
             f.write(DOMTree.toprettyxml("", "", encoding="utf-8"))
             f.close()
-
 
 
 

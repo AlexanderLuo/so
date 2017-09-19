@@ -1,6 +1,6 @@
 {
     "language":"JAVA",
-    "package":  "src",
+    "package":  "com.supervisor",
     "frame":"springBoot",
     "mysql":{
         "host":"www.bacengban.com",

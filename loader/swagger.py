@@ -3,7 +3,7 @@ import config
 import fn
 import cach
 
-
+print("swagger   Loading...")
 
 cr=cach.getInstance()
 

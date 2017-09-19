@@ -30,6 +30,8 @@ class FILEPATH(Enum):
 
 
 
+
+
 # 额外信息
 from enum import Enum, unique
 @unique
@@ -43,21 +45,12 @@ class INFO(Enum):
 from enum import Enum, unique
 @unique
 class PROTREE(Enum):
-    NORMAL =[{"lib":[]},{"src":[{"main":[{"java":[]},{"resources":[{"META-INF":[{"resources:[]"}]},{"static":[]}]}] },{"test":[{"java":[]}]}]}]
+    NORMAL =[{"lib":[]},{"src":[{"test":[]},{"main":[{"resources":[{"static":[]},{"META-INF":[{"resources":[]}]}]},{"java":[]}]}]}]
+    SPRINGBOOT = [{"controller": []}, {"service": []}, {"dao":[{"impl": []}]},{"po": []}, {"config": []}, {"repository": []}, {"annotation": []}, {"filter": []}, {"util": []},{"apiModel": []}]
 
-    SPRINGBOOT = [{"controller":[]},
-                  {"service":[]},
-                  {"dao":[
-                      {"impl":[]}
-                  ]},
-                  {"po":[]},
-                  {"config":[]},
-                  {"repository":[]},
-                  {"annotation":[]},
-                  {"filter":[]},
-                  {"util":[]},
-                  {"searchModel":[]}
-                  ]
+
+
+
 
 
 

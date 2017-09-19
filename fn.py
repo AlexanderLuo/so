@@ -44,3 +44,9 @@ def readAsLines(file):
 
 def openFile(file):
     return codecs.open(file,'w',encoding='utf8')
+
+
+def pt(*args):
+    for i in args:
+        print(i)
+
