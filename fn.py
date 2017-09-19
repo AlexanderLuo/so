@@ -9,6 +9,14 @@ def safeCopy(source,target):
     if not os.path.exists(target):
         shutil.copy(source, target)
 
+
+
+def safeCopyDir(source,target):
+    shutil.copytree(source, target)
+
+
+
+
 def thisPath(path=""):
     return config.FILEPATH.THISPATH.value+path
 
@@ -49,4 +57,9 @@ def openFile(file):
 def pt(*args):
     for i in args:
         print(i)
+
+
+
+
+
 
