@@ -6,3 +6,5 @@ https://www.ibm.com/developerworks/cn/aix/library/au-pythocli/
 Aa49810712
 http://www.jb51.net/article/87984.htm 处理目录树
 http://www.bubuko.com/infodetail-2114013.html
+
+http://blog.csdn.net/dracotianlong/article/details/28445725   JPA说明

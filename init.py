@@ -20,15 +20,20 @@ def initial():
     cr.set("plugin",dic["plugin"])
     fn.safeCopy(config.FILEPATH.NORMAL.value + ".gitignore", fn.thisPath(".gitignore"))
     if dic["language"]=="JAVA":
+        prog=config.PROTREE.NORMAL.value
+        path=config.FILEPATH.THISPATH.value
+        root={"arrTree":prog,"path":path}
+        q=Queue()
+        q.put(root)
+        parseQueue(q)
 
-        if dic["frame"] == "springBoot":
-            springBoot()
-
-
+        # if dic["frame"] == "springBoot":
+        #     springBoot()
 
 
 
 list=[]
+
 
 
 def springBoot():
@@ -37,10 +42,14 @@ def springBoot():
     arrTree=config.PROTREE.SPRINGBOOT.value
     path = cach.getInstance().get("packagePath")
     node={ "arrTree":arrTree ,"path": path }
+
     q.put(node)
     parseQueue(q)
+
     # builder.getInstance().build(list)
     plugin.getInstance().apply(cr.get("plugin"))
+
+
 
 
 def parseQueue(queue):

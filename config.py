@@ -43,6 +43,8 @@ class INFO(Enum):
 from enum import Enum, unique
 @unique
 class PROTREE(Enum):
+    NORMAL =[{"lib":[]},{"src":[{"main":[{"java":[]},{"resources":[{"META-INF":[{"resources:[]"}]},{"static":[]}]}] },{"test":[{"java":[]}]}]}]
+
     SPRINGBOOT = [{"controller":[]},
                   {"service":[]},
                   {"dao":[
